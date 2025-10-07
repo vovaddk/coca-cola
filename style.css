@@ -1,0 +1,189 @@
+/* Основні налаштування */
+body {
+  margin: 0;
+  font-family: 'Cinzel Decorative', serif;
+  background-color: #0e0e2b;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Хедер */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  height: 45px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 25px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ff4444;
+}
+
+.menu-btn {
+  display: none;
+}
+
+/* Hero секція */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Фон */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0e0e2b;
+  z-index: 0;
+}
+
+/* Зірки */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+/* Сніг */
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+}
+
+/* Орнамент */
+.ornament {
+  position: absolute;
+  bottom: 100px;
+  left: 60px;
+  width: 270px;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+/* Санта */
+.santa {
+  position: absolute;
+  bottom: 0;
+  right: 120px;
+  width: 520px;
+  z-index: 4;
+}
+
+/* Контент */
+.hero-content {
+  position: absolute;
+  top: 45%;
+  left: 160px;
+  transform: translateY(-50%);
+  z-index: 5;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+.hero-content h1 {
+  font-size: 64px;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+
+.cta {
+  display: inline-block;
+  border: 2px solid #fff;
+  padding: 12px 35px;
+  border-radius: 30px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-size: 16px;
+}
+
+.cta:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Стрілка вниз */
+.arrow {
+  position: absolute;
+  bottom: 30px;
+  left: 80px;
+  font-size: 28px;
+  z-index: 6;
+  animation: bounce 2s infinite;
+}
+
+/* Анімація стрілки */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* Адаптив */
+@media (max-width: 992px) {
+  header {
+    padding: 20px 40px;
+  }
+  .ornament {
+    width: 200px;
+    left: 30px;
+  }
+  .santa {
+    width: 400px;
+    right: 60px;
+  }
+  .hero-content {
+    left: 80px;
+  }
+  .hero-content h1 {
+    font-size: 46px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  .menu-btn {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .santa {
+    width: 320px;
+    right: 20px;
+  }
+  .hero-content {
+    left: 50px;
+  }
+}
