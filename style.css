@@ -1,189 +1,446 @@
-/* Основні налаштування */
+:root {
+  --bg-dark: #0b1235;
+  --bg-deep: #06081f;
+  --accent: #ff4f57;
+  --text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Cinzel Decorative', serif;
-  background-color: #0e0e2b;
-  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(circle at top left, #192869 0%, var(--bg-deep) 55%);
+  color: var(--text);
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Хедер */
-header {
+a {
+  color: inherit;
+}
+
+.site-header {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 25px 70px;
+  padding: 28px 70px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  justify-content: space-between;
+  z-index: 20;
 }
 
 .logo {
-  height: 45px;
+  height: 48px;
+  width: auto;
 }
 
-nav a {
-  color: #fff;
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
   text-decoration: none;
-  margin: 0 25px;
   font-size: 16px;
-  transition: color 0.3s;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: #ff4444;
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--accent);
 }
 
 .menu-btn {
   display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
 }
 
-/* Hero секція */
+.menu-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 .hero {
   position: relative;
   height: 100vh;
+  min-height: 680px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 70px 60px;
 }
 
-/* Фон */
-.background {
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 18% 35%, rgba(255, 255, 255, 0.15) 0%, rgba(11, 18, 53, 0) 45%),
+    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.12) 0%, rgba(6, 8, 31, 0) 40%),
+    linear-gradient(180deg, rgba(14, 17, 48, 0) 0%, rgba(6, 8, 31, 0.85) 100%);
+  z-index: 0;
+}
+
+.stars,
+.snow-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.snow-overlay {
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+.hero-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1180px;
+  z-index: 5;
+}
+
+.text-block {
+  max-width: 420px;
+}
+
+.text-block h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(2.75rem, 5vw, 4.4rem);
+  margin: 0 0 16px;
+  line-height: 1.15;
+  text-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 38px;
+  border-radius: 999px;
+  border: 2px solid var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta:hover,
+.cta:focus {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.ornament {
+  position: absolute;
+  bottom: -60px;
+  left: -80px;
+  width: clamp(180px, 28vw, 320px);
+  filter: drop-shadow(0 18px 45px rgba(0, 0, 0, 0.35));
+}
+
+.santa-group {
+  position: absolute;
+  right: clamp(40px, 10vw, 160px);
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  z-index: 6;
+}
+
+.santa {
+  width: clamp(260px, 42vw, 520px);
+  height: auto;
+  filter: drop-shadow(0 28px 45px rgba(0, 0, 0, 0.45));
+}
+
+.speech-bubble {
+  position: absolute;
+  left: -160px;
+  bottom: 72%;
+  width: 220px;
+  padding: 20px 24px;
+  background: #ffffff;
+  color: #173469;
+  border-radius: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -26px;
+  right: 30px;
+  width: 0;
+  height: 0;
+  border: 16px solid transparent;
+  border-top-color: #ffffff;
+  transform: rotate(12deg);
+}
+
+.speech-bubble p {
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+
+.snowflakes {
+  position: absolute;
+  inset: -120px auto auto -120px;
+  width: 360px;
+  height: 360px;
+  pointer-events: none;
+}
+
+.flake {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0e0e2b;
-  z-index: 0;
+  background: url('images/Stars.png') no-repeat center/contain;
+  opacity: 0.08;
+  animation: rotate 30s linear infinite;
 }
 
-/* Зірки */
-.stars {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  z-index: 1;
+.flake:nth-child(2) {
+  transform: scale(0.7);
+  animation-duration: 40s;
+  animation-direction: reverse;
+  opacity: 0.1;
 }
 
-/* Сніг */
-.snow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  z-index: 2;
+.flake:nth-child(3) {
+  transform: scale(0.45) translate(40px, 20px);
+  animation-duration: 50s;
 }
 
-/* Орнамент */
-.ornament {
-  position: absolute;
-  bottom: 100px;
-  left: 60px;
-  width: 270px;
-  z-index: 3;
-  opacity: 0.9;
+.flake:nth-child(4) {
+  transform: scale(0.3) translate(-20px, 40px);
+  animation-duration: 36s;
 }
 
-/* Санта */
-.santa {
-  position: absolute;
-  bottom: 0;
-  right: 120px;
-  width: 520px;
-  z-index: 4;
+.flake:nth-child(5) {
+  transform: scale(0.55) translate(50px, -30px);
+  animation-duration: 44s;
 }
 
-/* Контент */
-.hero-content {
-  position: absolute;
-  top: 45%;
-  left: 160px;
-  transform: translateY(-50%);
-  z-index: 5;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.7);
-}
-
-.hero-content h1 {
-  font-size: 64px;
-  margin: 0 0 20px;
-  line-height: 1.2;
-}
-
-.hero-content p {
-  font-size: 22px;
-  margin-bottom: 40px;
-}
-
-.cta {
-  display: inline-block;
-  border: 2px solid #fff;
-  padding: 12px 35px;
-  border-radius: 30px;
-  color: #fff;
-  text-decoration: none;
-  transition: background 0.3s;
-  font-size: 16px;
-}
-
-.cta:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-/* Стрілка вниз */
-.arrow {
-  position: absolute;
-  bottom: 30px;
-  left: 80px;
-  font-size: 28px;
-  z-index: 6;
-  animation: bounce 2s infinite;
-}
-
-/* Анімація стрілки */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
-}
-
-/* Адаптив */
-@media (max-width: 992px) {
-  header {
-    padding: 20px 40px;
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
   }
-  .ornament {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  left: 90px;
+  bottom: 38px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  z-index: 7;
+}
+
+.scroll-indicator .arrow {
+  width: 52px;
+  height: 52px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.scroll-indicator .arrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  transform: translate(-50%, -50%);
+}
+
+.scroll-indicator .arrow::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: 8px;
+  height: 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.75);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.75);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  animation: bounce 2.2s infinite;
+}
+
+.label {
+  opacity: 0.7;
+  letter-spacing: 0.48em;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(-50%, -60%) rotate(-45deg);
+  }
+  50% {
+    transform: translate(-50%, -30%) rotate(-45deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    padding: 160px 40px 60px;
+  }
+
+  .santa-group {
+    right: 40px;
+  }
+
+  .speech-bubble {
+    left: -120px;
+    bottom: 68%;
     width: 200px;
+  }
+
+  .scroll-indicator {
+    left: 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    padding: 22px 40px;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 240px;
+    height: 100vh;
+    background: rgba(6, 8, 31, 0.96);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 110px 32px;
+    gap: 24px;
+    transition: right 0.4s ease;
+  }
+
+  .site-nav.open {
+    right: 0;
+  }
+
+  .menu-btn {
+    display: flex;
+    z-index: 30;
+  }
+
+  .menu-btn.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-btn.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-btn.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero {
+    padding: 150px 30px 60px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .text-block {
+    max-width: 100%;
+  }
+
+  .santa-group {
+    position: relative;
+    right: 0;
+    margin-left: auto;
+    padding-top: 40px;
+  }
+
+  .speech-bubble {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: auto;
+    top: -110px;
+  }
+
+  .scroll-indicator {
     left: 30px;
   }
-  .santa {
-    width: 400px;
-    right: 60px;
-  }
-  .hero-content {
-    left: 80px;
-  }
-  .hero-content h1 {
-    font-size: 46px;
-  }
 }
 
-@media (max-width: 768px) {
-  nav {
+@media (max-width: 600px) {
+  body {
+    background: radial-gradient(circle at top left, #16235a 0%, var(--bg-deep) 70%);
+  }
+
+  .site-header {
+    padding: 20px 26px;
+  }
+
+  .hero {
+    padding: 140px 24px 50px;
+  }
+
+  .scroll-indicator {
     display: none;
   }
-  .menu-btn {
-    display: block;
-    font-size: 30px;
-    cursor: pointer;
-  }
-  .santa {
-    width: 320px;
-    right: 20px;
-  }
-  .hero-content {
-    left: 50px;
+
+  .speech-bubble {
+    width: 190px;
   }
 }
