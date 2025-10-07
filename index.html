@@ -4,47 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coca-Cola Christmas</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
   </head>
   <body>
-    <header>
+    <header class="site-header">
       <img
         src="images/Coca-Cola_logo_white 1.png"
         alt="Coca-Cola Logo"
         class="logo"
       />
-      <nav>
-        <a href="#">Main</a>
-        <a href="#">About</a>
-        <a href="#">Products</a>
-        <a href="#">Contacts</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#" class="nav-link">Main</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Products</a>
+        <a href="#" class="nav-link">Contacts</a>
       </nav>
-      <div class="menu-btn">☰</div>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
 
-    <section class="hero">
-      <div class="background"></div>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-background"></div>
+        <img src="images/Stars.png" alt="Starry sky" class="stars" />
+        <img src="images/Snow.png" alt="Snow overlay" class="snow-overlay" />
 
-      <img src="images/Stars.png" alt="Stars" class="stars" />
-      <img src="images/Snow.png" alt="Snow" class="snow" />
-      <img
-        src="images/222526_1383765926 2.png"
-        alt="Ornament"
-        class="ornament"
-      />
-      <img src="images/dedcoca 2.png" alt="Santa Claus" class="santa" />
+        <div class="hero-content">
+          <div class="snowflakes" aria-hidden="true">
+            <span class="flake"></span>
+            <span class="flake"></span>
+            <span class="flake"></span>
+            <span class="flake"></span>
+            <span class="flake"></span>
+          </div>
 
-      <div class="hero-content">
-        <h1>Main Site Title</h1>
-        <p>Lorem ipsum descriptum</p>
-        <a href="#" class="cta">Call to action</a>
-      </div>
+          <div class="text-block">
+            <h1 id="hero-title">Main Site Title</h1>
+            <p class="subtitle">Lorem ipsum descriptum</p>
+            <a href="#" class="cta">Call to action</a>
+          </div>
 
-      <div class="arrow">↓</div>
-    </section>
+          <img
+            src="images/222526_1383765926 2.png"
+            alt="Ornament"
+            class="ornament"
+            width="320"
+            height="320"
+          />
+        </div>
+
+        <div class="santa-group">
+          <img
+            src="images/dedcoca 2.png"
+            alt="Santa holding a Coca-Cola bottle"
+            class="santa"
+          />
+          <div class="speech-bubble">
+            <p>
+              Ho ho ho!!!<br />
+              Like it?<br />
+              Scroll down for more!
+            </p>
+          </div>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <span class="arrow"></span>
+          <span class="label">Scroll</span>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
